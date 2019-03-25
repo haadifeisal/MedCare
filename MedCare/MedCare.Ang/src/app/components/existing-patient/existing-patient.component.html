@@ -1,0 +1,15 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <form class="form-inline" novalidate #f="ngForm" (ngSubmit)="searchPatient(f)">
+      <input class="form-control mr-sm-2" [(ngModel)]="username" name="username" type="text" placeholder="Search" aria-label="Search" required>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search by username</button>
+    </form>
+    <ul class="list-group" [hidden]="patient==null">
+      <li [hidden]="patient==null" class="list-group-item">{{patient?.firstName}} {{patient?.lastName}} <button type="button" (click)="addPatient()" class="btn btn-sm btn-primary">Add patient</button></li>
+    </ul>
+    <ng-template #noPatient>
+      Patient does not exist.<hr />
+    </ng-template>
+  </div>
+</div>

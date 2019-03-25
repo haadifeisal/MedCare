@@ -1,0 +1,19 @@
+
+
+<h1 class="display-4 text-center">Record</h1><hr>
+<div class="row">
+  <div class="col-md-3 mx-auto">
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Doctor: {{doctor.firstName}} {{doctor.lastName}}</h5>
+        <ul class="list-group">
+          <li class="list-group-item text-white bg-dark">Pulse: {{record.pulse}}</li>
+          <li class="list-group-item text-white bg-dark">Stress Level: {{record.stressLevel}}</li>
+          <li class="list-group-item text-white bg-dark">Oxygen Level: {{record.oxygenLevel}}</li>
+          <li class="list-group-item text-white bg-dark">Date Created: {{record.dateCreated}}</li>
+        </ul>
+        <p class="card-text text-white">Description: {{record.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

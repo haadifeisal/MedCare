@@ -1,0 +1,39 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/list-doctors" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>View Doctors</a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h1>{{doctor?.firstName}} {{doctor?.lastName}}</h1>
+  </div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-danger" (click)="deleteDoctor()">Delete</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <div class="card-header">
+        <h2>Client ID: {{doctor?.id}}</h2>
+      </div>
+      <div class="body">
+        <ul class="list-group">
+          <li class="list-group-item">Admin: {{doctor?.isAdmin}}</li>
+          <li class="list-group-item">Username: {{doctor?.username}}</li>
+          <li class="list-group-item">Email: {{doctor?.email}}</li>
+          <li class="list-group-item">Phonenumber: {{doctor?.phoneNumber}}</li>
+          <li class="list-group-item"><strong>Specialist In: </strong>{{doctor?.specialistIn}}</li>
+          <li class="list-group-item"><strong>Description: </strong>{{doctor?.description}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

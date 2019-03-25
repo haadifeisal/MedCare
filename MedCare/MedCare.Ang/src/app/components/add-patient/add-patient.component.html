@@ -1,0 +1,101 @@
+
+<div class="row">
+  <div class="col-md-8">
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-9 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-user-md"></i> Add New Patient
+      </div>
+      <div class="card-body">
+        <form novalidate #f="ngForm" (ngSubmit)="addPatient(f)">
+
+          <div class="form-group">
+            <label for="firstname">Firstname: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':patientFirstName.errors?.required && patientFirstName.touched || patientFirstName.errors?.minlength}" [(ngModel)]="patient.firstName" name="firstname" #patientFirstName="ngModel" required minlength="2" />
+            <div *ngIf="patientFirstName.errors?.required && patientFirstName.touched" class="invalid-feedback">
+              Firstname is required
+            </div>
+            <div *ngIf="patientFirstName.errors?.minlength" class="invalid-feedback">
+              Firtname must be atleast 2 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Lastname: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':patientLastName.errors?.required && patientLastName.touched || patientLastName.errors?.minlength}" [(ngModel)]="patient.lastName" name="lastname" #patientLastName="ngModel" required minlength="2" />
+            <div *ngIf="patientLastName.errors?.required && patientLastName.touched" class="invalid-feedback">
+              Lastname is required
+            </div>
+            <div *ngIf="patientLastName.errors?.minlength" class="invalid-feedback">
+              Lastname must be atleast 2 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':patientEmail.errors?.required && patientEmail.touched || patientEmail.errors?.pattern}" [(ngModel)]="patient.email" name="email" #patientEmail="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+            <div *ngIf="patientEmail.errors?.required && patientEmail.touched" class="invalid-feedback">
+              Email is required
+            </div>
+            <div *ngIf="patientEmail.errors?.pattern" class="invalid-feedback">
+              Email is invalid
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':patientUsername.errors?.required && patientUsername.touched || patientUsername.errors?.minlength}" [(ngModel)]="patient.username" name="username" #patientUsername="ngModel" required minlength="3" />
+            <div *ngIf="patientUsername.errors?.required && patientUsername.touched" class="invalid-feedback">
+              Username is required
+            </div>
+            <div *ngIf="patientUsername.errors?.minlength" class="invalid-feedback">
+              Username must be atleast 3 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" class="form-control" [ngClass]="{'is-invalid':patientPassword.errors?.required && patientPassword.touched || patientPassword.errors?.minlength}" [(ngModel)]="patient.password" name="password" #patientPassword="ngModel" required minlength="7" />
+            <div *ngIf="patientPassword.errors?.required && patientPassword.touched" class="invalid-feedback">
+              Password is required
+            </div>
+            <div *ngIf="patientPassword.errors?.minlength" class="invalid-feedback">
+              Password must be atleast 7 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':patientPhoneNumber.errors?.required && patientPhoneNumber.touched || patientPhoneNumber.errors?.minlength}" [(ngModel)]="patient.phoneNumber" name="phoneNumber" #patientPhoneNumber="ngModel" required minlength="10" />
+            <div *ngIf="patientPhoneNumber.errors?.required && patientPhoneNumber.touched" class="invalid-feedback">
+              Phone Number is required
+            </div>
+            <div *ngIf="patientPhoneNumber.errors?.minlength" class="invalid-feedback">
+              Phone Number must be atleast 10 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="socialNumber">Social Number: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':patientSocialNumber.errors?.required && patientSocialNumber.touched || patientSocialNumber.errors?.minlength}" [(ngModel)]="patient.socialNumber" name="socialNumber" #patientSocialNumber="ngModel" required minlength="13" />
+            <div *ngIf="patientSocialNumber.errors?.required && patientSocialNumber.touched" class="invalid-feedback">
+              Social Number is required
+            </div>
+            <div *ngIf="patientSocialNumber.errors?.minlength" class="invalid-feedback">
+              Social Number must be atleast 3 characters long
+            </div>
+          </div>
+
+          <input type="submit" value="submit" class="btn btn-primary btn-block">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <a href="#" routerLink="/existing-patient" class="btn btn-success btn-block"><i class="fa fa-plus"></i>  Add Existing Patient</a>
+  </div>
+</div>

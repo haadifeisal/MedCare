@@ -1,0 +1,29 @@
+
+<h1 class="display-4 text-center">Records</h1>
+<div class="row">
+  <div class="col-md-9">
+    <table *ngIf="records?.length>0 ; else noRecord" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Doctor Id</th>
+          <th scope="col">Date Created</th>
+          <th scope="col">Description</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{record.doctorId}}</td>
+          <td>{{record.dateCreated}}</td>
+          <td>{{record.description}}</td>
+          <td><a href="#" [routerLink]="['/record-detail/'+record.id]" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-right"></i>View Details</a></td>
+        </tr>
+      </tbody>
+
+    </table>
+    <ng-template #noRecord>No records available<hr /></ng-template>
+  </div>
+  <div class="col-md-3">
+    <a href="#" routerLink="/add-record" class="btn btn-primary btn-block">New Record</a>
+  </div>
+</div>

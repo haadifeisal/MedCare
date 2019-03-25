@@ -1,0 +1,39 @@
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="text-center"><i class="fa fa-user-md"></i> Available Doctor's</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-10">
+          <table *ngIf="doctors?.length > 0; else noDoctors" class="table table-stripped">
+            <thead class="thead-dark">
+              <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doctor of doctors">
+                <td>{{doctor.firstName}}</td>
+                <td>{{doctor.lastName}}</td>
+                <td>{{doctor.email}}</td>
+                <td>{{doctor.specialistIn}}</td>
+                <td><a href="#" [routerLink]="['/doctor-detail/'+doctor.id]" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-right"></i> View Details</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #noDoctors>
+            <hr />
+            No doctors registered in the system.
+          </ng-template>
+        </div>
+        <div class="col-md-2">
+          <a href="#" class="btn btn-success btn-block" routerLink="/add-doctor"><i class="fa fa-plus"></i>New</a>
+        </div>
+      </div>
+      </div>
+  </div>

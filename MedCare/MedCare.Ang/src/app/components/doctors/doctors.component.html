@@ -1,0 +1,38 @@
+
+
+<div class="col-md-12 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="text-center"><i class="fa fa-user-md"></i> Your Doctors</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <table *ngIf="doctors?.length > 0; else noDoctors" class="table table-stripped">
+          <thead class="thead-dark">
+            <tr>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Email</th>
+              <th>PhoneNumber</th>
+              <th>Specialist In</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doctor of doctors">
+              <td>{{doctor.firstName}}</td>
+              <td>{{doctor.lastName}}</td>
+              <td>{{doctor.email}}</td>
+              <td>{{doctor.phoneNumber}}</td>
+              <td>{{doctor.specialistIn}}</td>
+              <td>{{doctor.description}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #noDoctors>
+        You have no doctors.<hr />
+      </ng-template>
+    </div>
+  </div>
+</div>

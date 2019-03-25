@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MedCare.Ang\src\app\guards\adminGuard.ts" />
+    <None Remove="MedCare.Ang\src\app\guards\docGuard.ts" />
+    <None Remove="MedCare.Ang\src\app\guards\patGuard.ts" />
+    <None Remove="MedCare.Ang\src\app\models\AddDoctor.ts" />
+    <None Remove="MedCare.Ang\src\app\models\AddPatient.ts" />
+    <None Remove="MedCare.Ang\src\app\models\CreateRecord.ts" />
+    <None Remove="MedCare.Ang\src\app\models\Doctor.ts" />
+    <None Remove="MedCare.Ang\src\app\models\ExistingPatient.ts" />
+    <None Remove="MedCare.Ang\src\app\models\GetMessage.ts" />
+    <None Remove="MedCare.Ang\src\app\models\GetRecord.ts" />
+    <None Remove="MedCare.Ang\src\app\models\Patient.ts" />
+    <None Remove="MedCare.Ang\src\app\models\SendMessage.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="angular-jwt.TypeScript.DefinitelyTyped" Version="0.7.4" />
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="MedCare.Ang\src\app\guards\adminGuard.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\guards\docGuard.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\guards\patGuard.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\AddDoctor.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\AddPatient.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\CreateRecord.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\Doctor.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\ExistingPatient.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\GetMessage.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\GetRecord.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\Patient.ts" />
+    <TypeScriptCompile Include="MedCare.Ang\src\app\models\SendMessage.ts" />
+  </ItemGroup>
+
+
+
+</Project>

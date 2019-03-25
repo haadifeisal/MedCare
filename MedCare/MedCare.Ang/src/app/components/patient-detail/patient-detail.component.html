@@ -1,0 +1,32 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/patients" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>View Patients</a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h1>{{patient?.firstName}} {{patient?.lastName}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <div class="card-header">
+        <h2>Patient ID: {{patient?.id}}</h2>
+      </div>
+      <div class="body">
+        <ul class="list-group">
+          <li class="list-group-item">Username: {{patient?.username}}</li>
+          <li class="list-group-item">Email: {{patient?.email}}</li>
+          <li class="list-group-item">Phonenumber: {{patient?.phoneNumber}}</li>
+          <li class="list-group-item"><strong>SocialNumber: </strong>{{patient?.socialNumber}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

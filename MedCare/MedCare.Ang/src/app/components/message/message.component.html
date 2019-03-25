@@ -1,0 +1,30 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/messages" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>Inbox</a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <h1> Message </h1>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item"><strong>From: </strong>{{message.from}}</li>
+          <li class="list-group-item"><strong>Subject: </strong>{{message.subject}}</li>
+          <li class="list-group-item"><strong>Date: </strong>{{message.timeSent}}</li>
+          <li class="list-group-item" style="color:darkblue"><strong>Content: </strong>{{message.content}}</li>
+        </ul>
+        <button type="button" (click)="deleteMessage(message.id)" class="btn btn-danger btn-sm">Delete Message</button>
+      </div>
+    </div>
+    <ng-template #noMessages>
+      You have no messages.
+    </ng-template>
+  </div>
+</div>

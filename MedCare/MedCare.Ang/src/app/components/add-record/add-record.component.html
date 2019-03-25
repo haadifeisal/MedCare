@@ -1,0 +1,62 @@
+
+
+<div class="row">
+  <div class="col-md-8">
+    <a href="#" routerLink="/patient-records" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>View Records</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-plus-square"></i> Add New Record
+      </div>
+      <div class="card-body">
+        <form novalidate #f="ngForm" (ngSubmit)="addRecord(f)">
+
+          <div class="form-group">
+            <label for="username">Choose a Doctor</label>
+            <select class="form-control" id="username" (change)="onChange($event)">
+              <option></option>
+              <option *ngFor="let doctor of doctors" [ngValue]="doctor.username">{{doctor.username}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="pulse">Pulse: </label>
+            <input type="number" class="form-control" [ngClass]="{'is-invalid':recordPulse.errors?.required && recordPulse.touched}" [(ngModel)]="record.pulse" name="pulse" #recordPulse="ngModel" required />
+            <div *ngIf="recordPulse.errors?.required && recordPulse.touched" class="invalid-feedback">
+              Pulse is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="stressLevel">Stress Level: </label>
+            <input type="number" class="form-control" [ngClass]="{'is-invalid':recordStressLevel.errors?.required && recordStressLevel.touched}" [(ngModel)]="record.stressLevel" name="stressLevel" #recordStressLevel="ngModel" required />
+            <div *ngIf="recordStressLevel.errors?.required && recordStressLevel.touched" class="invalid-feedback">
+              Stress Level is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="oxygenLevel">Oxygen Level: </label>
+            <input type="number" class="form-control" [ngClass]="{'is-invalid':recordOxygenLevel.errors?.required && recordOxygenLevel.touched}" [(ngModel)]="record.oxygenLevel" name="oxygenLevel" #recordOxygenLevel="ngModel" required />
+            <div *ngIf="recordOxygenLevel.errors?.required && recordOxygenLevel.touched" class="invalid-feedback">
+              Oxygen Level is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description: </label>
+            <textarea name="description" class="form-control" [ngClass]="{'is-invalid':recordDescription.errors?.required && recordDescription.touched}" [(ngModel)]="record.description" #recordDescription="ngModel" required></textarea>
+            <div *ngIf="recordDescription.errors?.required && recordDescription.touched" class="invalid-feedback">
+              Record must have a Description
+            </div>
+          </div>
+
+          <input type="submit" value="submit" class="btn btn-primary btn-block">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

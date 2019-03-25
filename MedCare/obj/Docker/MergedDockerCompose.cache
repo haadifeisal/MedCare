@@ -1,0 +1,11 @@
+services:
+  medcare:
+    build:
+      context: C:\Users\Haadi\Documents\GitHub\MjukvaruMedCare\MedCare
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: medcare
+    ports:
+    - 80/tcp
+version: '3.0'

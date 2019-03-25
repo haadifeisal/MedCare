@@ -1,0 +1,107 @@
+
+<div class="row">
+  <div class="col-md-8">
+    <a href="#" routerLink="/list-doctors" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>View Doctors</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-user-md"></i> Add New Doctor
+      </div>
+      <div class="card-body">
+        <form novalidate #f="ngForm" (ngSubmit)="addDoctor(f)">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" [checked]="doctor.isAdmin" (change)="doctor.isAdmin =! doctor.isAdmin" name="isAdmin">
+            <label class="form-check-label" for="isAdmin">Admin</label><br />
+          </div>
+
+          <div class="form-group">
+            <label for="firstname">Firstname: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':doctorFirstName.errors?.required && doctorFirstName.touched || doctorFirstName.errors?.minlength}" [(ngModel)]="doctor.firstName" name="firstname" #doctorFirstName="ngModel" required minlength="2" />
+            <div *ngIf="doctorFirstName.errors?.required && doctorFirstName.touched" class="invalid-feedback">
+              Firstname is required
+            </div>
+            <div *ngIf="doctorFirstName.errors?.minlength" class="invalid-feedback">
+              Firtname must be atleast 2 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Lastname: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':doctorLastName.errors?.required && doctorLastName.touched || doctorLastName.errors?.minlength}" [(ngModel)]="doctor.lastName" name="lastname" #doctorLastName="ngModel" required minlength="2" />
+            <div *ngIf="doctorLastName.errors?.required && doctorLastName.touched" class="invalid-feedback">
+              Lastname is required
+            </div>
+            <div *ngIf="doctorLastName.errors?.minlength" class="invalid-feedback">
+              Lastname must be atleast 2 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':doctorEmail.errors?.required && doctorEmail.touched || doctorEmail.errors?.pattern}" [(ngModel)]="doctor.email" name="email" #doctorEmail="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+            <div *ngIf="doctorEmail.errors?.required && doctorEmail.touched" class="invalid-feedback">
+              Email is required
+            </div>
+            <div *ngIf="doctorEmail.errors?.pattern" class="invalid-feedback">
+              Email is invalid
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':doctorUsername.errors?.required && doctorUsername.touched || doctorUsername.errors?.minlength}" [(ngModel)]="doctor.username" name="username" #doctorUsername="ngModel" required minlength="3" />
+            <div *ngIf="doctorUsername.errors?.required && doctorUsername.touched" class="invalid-feedback">
+              Username is required
+            </div>
+            <div *ngIf="doctorUsername.errors?.minlength" class="invalid-feedback">
+              Username must be atleast 3 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" class="form-control" [ngClass]="{'is-invalid':doctorPassword.errors?.required && doctorPassword.touched || doctorPassword.errors?.minlength}" [(ngModel)]="doctor.password" name="password" #doctorPassword="ngModel" required minlength="4" />
+            <div *ngIf="doctorPassword.errors?.required && doctorPassword.touched" class="invalid-feedback">
+              Password is required
+            </div>
+            <div *ngIf="doctorPassword.errors?.minlength" class="invalid-feedback">
+              Password must be atleast 4 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':doctorPhoneNumber.errors?.required && doctorPhoneNumber.touched || doctorPhoneNumber.errors?.minlength}" [(ngModel)]="doctor.phoneNumber" name="phoneNumber" #doctorPhoneNumber="ngModel" required minlength="10" />
+            <div *ngIf="doctorPhoneNumber.errors?.required && doctorPhoneNumber.touched" class="invalid-feedback">
+              Phone Number is required
+            </div>
+            <div *ngIf="doctorPhoneNumber.errors?.minlength" class="invalid-feedback">
+              Phone Number must be atleast 10 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="specialistIn">Specialist In: </label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid':doctorSpecialistIn.errors?.required && doctorSpecialistIn.touched}" [(ngModel)]="doctor.specialistIn" name="specialistIn" #doctorSpecialistIn="ngModel" required />
+            <div *ngIf="doctorSpecialistIn.errors?.required && doctorSpecialistIn.touched" class="invalid-feedback">
+              Doctor must be specialized in a certain area
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description: </label>
+            <textarea name="description" class="form-control" [ngClass]="{'is-invalid':doctorDescription.errors?.required && doctorDescription.touched}" [(ngModel)]="doctor.description" #doctorDescription="ngModel" required></textarea>
+            <div *ngIf="doctorDescription.errors?.required && doctorDescription.touched" class="invalid-feedback">
+              Doctor must have a Description
+            </div>
+          </div>
+
+          <input type="submit" value="submit" class="btn btn-primary btn-block">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

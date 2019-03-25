@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/messages" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>Inbox</a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <h1> New Message </h1>
+      </div>
+      <div class="card-body">
+        <form novalidate #f="ngForm" (ngSubmit)="sendMessage(f)">
+          <ul class="list-group">
+            <div class="form-group">
+              <label for="email">To: </label>
+              <select class="form-control" id="email" (change)="onChange($event)">
+                <option></option>
+                <option *ngFor="let doctor of doctors" [ngValue]="doctor.email">{{doctor.email}}</option>
+              </select>
+            </div>
+            <li class="list-group-item"><strong>Subject: </strong><input type="text" class="form-control" name="subject" [(ngModel)]="message.subject" required /></li>
+            <li class="list-group-item" style="color:darkblue"><strong>Content: </strong><textarea class="form-control" name="content" [(ngModel)]="message.content" required></textarea></li>
+          </ul>
+          <input type="submit" value="Send" class="btn btn-primary btn-block">
+        </form>
+      </div>
+    </div>
+    <ng-template #noMessages>
+      You have no messages.
+    </ng-template>
+  </div>
+</div>
